@@ -57,6 +57,14 @@ The state dict model can be loaded using:
 retinanet = model.resnet50(num_classes=dataset_train.num_classes(),)
 retinanet.load_state_dict(torch.load(PATH_TO_WEIGHTS))
 ```
+## converting to torchscript
+
+The following command gives an example how to convert the pytorch model to a script model. 
+The model argument must always be a state dictionary. The converter supports all resnet depths and combination with an anbitrary number of classes.
+
+```
+python convert2script.py --depth 50 --classes 80 --model coco_resnet_50_map_0_335_state_dict.pt --outname cocoscript.dat
+```
 
 ## Validation
 
